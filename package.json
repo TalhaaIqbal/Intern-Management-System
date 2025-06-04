@@ -1,0 +1,40 @@
+{
+  "name": "intern-management-system",
+  "version": "1.0.0",
+  "description": "A full-stack system for managing and tracking intern progress",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm run dev",
+    "install:all": "npm install && npm run install:client && npm run install:server",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "test": "concurrently \"npm run test:client\" \"npm run test:server\"",
+    "test:client": "cd client && npm test",
+    "test:server": "cd server && npm test"
+  },
+  "keywords": [
+    "intern",
+    "management",
+    "react",
+    "node",
+    "express",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "intern-management-system": "file:"
+  }
+}
