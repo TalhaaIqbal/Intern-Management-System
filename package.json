@@ -35,6 +35,7 @@
     "concurrently": "^8.2.2"
   },
   "dependencies": {
-    "intern-management-system": "file:"
+    "intern-management-system": "file:",
+    "recharts": "^2.15.3"
   }
 }
