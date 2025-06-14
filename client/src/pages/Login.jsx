@@ -27,7 +27,7 @@ const Login = () => {
         setError(null);
 
         try {
-            const res = await axios.post('http://localhost:5000/api/login', formData, {
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/login`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }

@@ -17,7 +17,7 @@ const InternDashboard = () => {
         const email = localStorage.getItem('userEmail');
         const token = localStorage.getItem('token');
 
-        const res = await axios.get('http://localhost:5000/api/domain-tasks', {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/domain-tasks`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,

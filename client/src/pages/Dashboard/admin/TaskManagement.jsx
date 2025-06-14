@@ -47,7 +47,7 @@ const TaskManagement = () => {
 
         try {
             setLoading(true);
-            const response = await axios.post('http://localhost:5000/api/add-task', formData);
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/add-task`, formData);
             setTasks(prev => [...prev, response.data.task]);
             setFormData({ title: '', description: '', domain: '', level: '', createdBy: '' });
             setMessage('✅ Task added successfully!');

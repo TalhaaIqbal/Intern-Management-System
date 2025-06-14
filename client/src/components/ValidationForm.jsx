@@ -52,7 +52,7 @@ function ValidationForm({ initialValues }) {
                     console.log('Submitting formData:', [...formData.entries()]);
 
                     const res = await axios.post(
-                        'http://localhost:5000/api/register',
+                        `${process.env.REACT_APP_BACKEND_URL}/api/register`,
                         formData,
                         {
                             headers: {

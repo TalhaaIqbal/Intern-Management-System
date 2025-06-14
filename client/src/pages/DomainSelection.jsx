@@ -15,7 +15,7 @@ const DomainSelection = () => {
         } else {
             const fetchEmail = async () => {
                 try {
-                    const res = await axios.get('http://localhost:5000/api/get-user');
+                    const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/get-user`);
                     if (res.status === 200) {
                         console.log(res.data);
                         setEmail(res.data.email);
@@ -51,7 +51,7 @@ const DomainSelection = () => {
             setError(null);
 
             // 1. Set domain
-            const res = await axios.patch('http://localhost:5000/api/select-domain', {
+            const res = await axios.patch(`${process.env.REACT_APP_BACKEND_URL}/api/select-domain`, {
                 email,
                 domain: domainId
             });
@@ -64,7 +64,7 @@ const DomainSelection = () => {
                 console.log("User email:", userEmail, "Domain ID:", domainId);
 
                 // 2. Assign tasks
-                const assignRes = await axios.post('http://localhost:5000/api/assign-tasks', {
+                const assignRes = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/assign-tasks`, {
                     email,
                     domain: domainId,
                 });

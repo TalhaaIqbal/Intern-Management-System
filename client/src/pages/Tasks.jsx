@@ -40,7 +40,7 @@ const Tasks = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/submit-task', {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/submit-task`, {
         taskId: selectedTask._id || selectedTask.id,
         userId: localStorage.getItem('userId'),
         githubLink,
@@ -61,7 +61,7 @@ const Tasks = () => {
   useEffect(() => {
     const fetchAllTasks = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/all-tasks');
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/all-tasks`);
         if (res.status === 200) {
           setTasks(res.data);
         } else {
@@ -74,7 +74,7 @@ const Tasks = () => {
 
     const fetchDomainTasks = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/domain-tasks', {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/domain-tasks`, {
           params: { email: localStorage.getItem('userEmail') },
         });
         if (res.status === 200) {

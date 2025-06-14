@@ -18,7 +18,7 @@ const ViewSubmissions = () => {
             }
             setLoading(true);
             try {
-                const response = await axios.get('http://localhost:5000/api/submissions', {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/submissions`, {
                     headers: { 'Content-Type': 'application/json' },
                 });
                 setFormData(response.data);
@@ -46,7 +46,7 @@ const ViewSubmissions = () => {
     const handleSubmitFeedback = async () => {
         try {
             console.log(selectedSubmission);
-            await axios.post('http://localhost:5000/api/submissions/feedback', {
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/submissions/feedback`, {
                 email: selectedSubmission.userEmail,
                 taskId: selectedSubmission.id,
                 grade,
